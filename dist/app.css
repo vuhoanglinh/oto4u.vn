@@ -200,6 +200,9 @@ html, body {
 }
 
 /*SLIDER*/
+.slider {
+  background: url("images/bg-app.jpg");
+}
 @media screen and (max-width: 767px) {
   .slider {
     display: none;
