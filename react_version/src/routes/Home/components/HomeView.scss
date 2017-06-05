@@ -1,0 +1,454 @@
+$white: #fff;
+$gray: #eee;
+$font-color: #434a4f;
+$green: #91b115;
+@font-face {
+  font-family: 'UTMAvoBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local("UTMAvoBold"), url('fonts/utm-avobold.woff') format("woff");
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  color: $font-color;
+  font-size: 16px;
+}
+
+
+.container {
+  @media (min-width: 1200px) {
+    width: 1020px;
+  }
+}
+
+
+/* HEADER */
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-toggle {
+  background: $gray;
+  .icon-bar {
+    background: $font-color;
+  }
+}
+
+.navbar-brand {
+  padding: 5px 15px;
+  img {
+    width: 90px;
+  }
+}
+
+.navbar-nav > li > a {
+  color: #666;
+  &:hover {
+    background: transparent;
+    color: $green;
+  }
+}
+
+/* TOP BANNER */
+
+.top-banner {
+  background: url(images/top-banner-car.jpg);
+  background-size: contain;
+  min-height: 450px;
+  @media (min-width: 768px) {
+    min-height: 385px;
+  }
+  @media screen and (max-width: 768px) {
+    background-size: cover;
+  }
+  @media screen and (max-width: 768px) {
+    min-height: 340px;
+  }
+  .left, .right {
+    height: 450px;
+    display: block;
+    position: relative;
+    width: 50%;
+    float: left;
+    @media (max-width: 768px) {
+      height: 385px;
+    }
+    @media screen and (max-width: 767px) {
+      height: 320px;
+      width: 100%;
+      float: right;
+    }
+  }
+  .left {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+  .left img {
+    position: absolute;
+    bottom: 0;
+    height: 430px;
+    max-width: 100%;
+    @media (max-width: 768px) {
+      height: 350px;
+    }
+    @media screen and (max-width: 767px) {
+      height: 280px;
+    }
+  }
+  .right {
+    padding-left: 30px;
+    color: $white;
+    @media screen and (max-width: 767px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    h2 {
+      font-family: 'UTMAvoBold', sans-serif;
+      font-weight: bolder;
+      font-size: 46px;
+      margin: 50px 0 30px;
+      @media (max-width: 768px) {
+        font-size: 36px;
+        margin: 30px 0 20px;
+      }
+      @media screen and (max-width: 767px) {
+        font-size: 34px;
+        margin: 20px 0;
+      }
+      @media screen and (max-width: 420px) {
+        font-size: 28px;
+      }
+    }
+    p {
+      font-size: 18px;
+      font-weight: 100;
+      @media screen and (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+    .action {
+      margin-top: 40px;
+      img {
+        height: 40px;
+        @media screen and (max-width: 420px) {
+          height: 35px;
+        }
+      }
+    }
+  }
+}
+
+/* FEATURE */
+.feature {
+  h2 {
+    font-family: 'UTMAvoBold', sans-serif;
+    font-weight: bolder;
+    line-height: 1.6;
+    margin: 20px 0;
+    text-align: center;
+    span {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      display: block;
+      font-weight: 100;
+    }
+    .divider {
+      border-top: 1px solid $green;
+      width: 250px;
+      margin: 10px auto;
+    }
+  }
+  
+  .item {
+    margin: 20px 0;
+    height: 320px;
+    .icon {
+      margin: 0 0 20px;
+      img {
+        display: block;
+        height: 96px;
+        margin: 0 auto;
+      }
+    }
+    .title {
+      font-size: 22px;
+      margin: 0 0 20px;
+      text-align: center;
+      height: 60px;
+    }
+    .description {
+      font-weight: 100;
+    }
+  }
+}
+
+/*SLIDER*/
+.slider {
+  background: url("images/bg-app.jpg");
+  @media screen and (max-width: 767px) {
+   display: none;
+  }
+}
+.slick-next {
+  right: 120px;
+  background: url(images/icon-right-arrow.png);
+  &:hover {
+    @extend .slick-next;
+  }
+  @media screen and (max-width: 1024px) {
+    right: 25px;
+  }
+}
+.slick-prev {
+  left: 120px;
+  background: url(images/icon-left-arrow.png);
+  &:hover {
+    @extend .slick-prev;
+  }
+  @media screen and (max-width: 1024px) {
+    left: 25px;
+  }
+}
+.slick-next, .slick-prev {
+  z-index: 11;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  
+  &:before {
+    content: "";
+    opacity: 0;
+  }
+}
+
+.slick-dots {
+  bottom: 20px;
+  li {
+    width: 10px;
+    height: 10px;
+    button {
+      @extend li;
+      border: 2px solid $white;
+      border-radius: 50%;
+      &:before {
+        content: "";
+      }
+    }
+    &.slick-active {
+      button {
+        border-color: $green;
+        background: $green;
+      }
+    }
+  }
+}
+
+/* REVIEW */
+.review {
+  .item {
+    position: relative;
+    .avatar {
+      display: block;
+      img {
+        max-width: 100%;
+      }
+      height: 380px;
+      overflow: hidden;
+      @media screen and (max-width: 768px) {
+        height: 285px;
+        width: 100%;
+      }
+    }
+    .title {
+      height: 85px;
+      position: relative;
+      z-index: 11;
+      color: $white;
+      background: $green;
+      text-align: center;
+      padding: 30px 15px 10px;
+      .icon {
+          position: absolute;
+          top: -20px;
+          left: 0;
+          width: 100%;
+        img {
+          width: 45px;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+      h3 {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-top: 0;
+        span {
+          display: block;
+          font-weight: 100;
+          font-size: 14px;
+        }
+      }
+    }
+    .description {
+      display: none;
+      width: 100%;
+      position: absolute;
+      bottom: 85px;
+      padding: 10px;
+      color: $white;
+      background: rgba(0, 0, 0, 0.4);
+      -webkit-transition: all 0.3s linear;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+    &:hover {
+      .description {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/* DOWNLOAD */
+.download {
+  height: 435px;
+  background: url(images/banner2.png);
+  background-size: contain;
+  @media screen and (max-width: 768px) {
+    background-size: cover;
+    background-position: -335px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 400px;
+  }
+  .left {
+    width: 60%;
+    text-align: center;
+    padding: 100px 0 40px;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 767px) {
+      padding: 40px;
+    }
+    h2 {
+      font-family: 'UTMAvoBold', sans-serif;
+      font-weight: bolder;
+      line-height: 1.5;
+      @media screen and (max-width: 767px) {
+        font-size: 28px;
+      }
+      span {
+        font-family: 'Roboto', sans-serif;
+        display: block;
+        font-weight: 100;
+        font-size: 16px;
+      }
+    }
+    .action {
+      margin-top: 30px;
+      .btn {
+        font-family: 'UTMAvoBold', sans-serif;
+        color: $white;
+        background: $font-color;
+        font-size: 18px;
+        padding: 15px 30px;
+        border-radius: 30px;
+        width: 240px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        &:hover {
+          color: $white;
+        }
+        i {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+/*CONTACT*/
+.contact {
+  padding: 50px 0 20px;
+  text-align: center;
+  .item {
+    margin-bottom: 30px;
+    .icon {
+      margin-bottom: 30px;
+      img {
+        height: 35px;
+      }
+    }
+  }
+  .description, .copyright {
+    font-size: 16px;
+    font-weight: 100;
+  }
+  
+  .social-icon {
+    margin: 10px 0 ;
+    display: block;
+    a {
+      font-size: 24px;
+      padding: 0 15px;
+      color: $font-color;
+      &:hover {
+        color: $font-color;
+      }
+    }
+  }
+}
+
+#return-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  display: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  i {
+    color: $white;
+    margin: 0;
+    position: relative;
+    left: 15px;
+    top: 7px;
+    font-size: 30px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    background: rgba(0, 0, 0, 0.9);
+    i {
+      color: $white;
+      top: 5px;
+    }
+  }
+}
+
+
+.navbar-nav {
+  flex-direction: initial;
+}
