@@ -9,20 +9,37 @@ import Icon3 from '../components/images/icon3.png'
 import Icon4 from '../components/images/icon4.png'
 import Icon5 from '../components/images/icon5.png'
 import Icon6 from '../components/images/icon6.png'
-import SlideImage from '../components/images/banner-app.png';
+import SlideImage from '../components/images/banner-app.png'
+import IconLocation from '../components/images/icon-location.png'
+import IconMail from '../components/images/icon-mail.png'
+import IconPhone from '../components/images/icon-phone.png'
 import Menu from '../modules/Menu'
 import TopBanner from '../modules/TopBanner'
 import Feature from '../modules/Feature'
 import FeatureItem from '../modules/FeatureItem'
 import Slide from '../modules/Slide'
+import Download from '../modules/Download'
+import Contact from '../modules/Contact'
 
 export default class Container extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 
 		[
-			'onItemClick'
+			'onItemClick',
+			'onReturnTopClick'
 		].forEach((method) => this[method] = this[method].bind(this));
+	}
+
+	componentDidMount() {
+		// ===== Scroll to Top ==== 
+	    $(window).scroll(function() {
+	        if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+	            $('#return-to-top').fadeIn(200);    // Fade in the arrow
+	        } else {
+	            $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+	        }
+	    });
 	}
 
 	onItemClick(element) {
@@ -31,6 +48,12 @@ export default class Container extends React.Component {
         }, 2000);
 
         return false;
+	}
+
+	onReturnTopClick() {
+		$('body,html').animate({
+            scrollTop : 0                       // Scroll to top of body
+        }, 500);
 	}
 
 	render() {
@@ -139,6 +162,70 @@ export default class Container extends React.Component {
 					<div><img src={SlideImage} className="img-responsive" /></div>
 					<div><img src={SlideImage} className="img-responsive" /></div>
 				</Slide>
+
+				{/* DOWNLOAD */}
+				<Download 
+					id={'download'}
+					caption={'Download và trãi nghiệm'} 
+					captionHelper={'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'} 
+					actions={[
+						{
+							href: '#',
+							iconClass: 'fa fa-apple',
+							text: 'APPLE STORE'
+						},
+						{
+							href: '#',
+							iconClass: 'fa fa-google',
+							text: 'GOOGLE PLAY'
+						},
+					]}
+				/>
+
+				{/* CONTACT */}
+				<Contact 
+					id={'contact'} 
+					items={[
+						{
+							icon: IconLocation,
+							description: `335 Trần Xuân Soạn, Phường Tân Kiểng <br/>
+							Quận 7, Hồ Chí Minh`
+						},
+						{
+							icon: IconMail,
+							description: `Office : 08 546 567 <br/>
+							Phone : 0908 235 566`
+						},
+						{
+							icon: IconPhone,
+							description: `support@oto4u.vn <br/>
+							admin@oto4u.vn`
+						},
+					]}
+					socials={[
+						{
+							href: '#',
+							iconClass: 'fa fa-facebook'
+						},
+						{
+							href: '#',
+							iconClass: 'fa fa-instagram'
+						},
+						{
+							href: '#',
+							iconClass: 'fa fa-pinterest-p'
+						},
+						{
+							href: '#',
+							iconClass: 'fa fa-youtube-play'
+						}
+					]}
+					copyright={'OTO4U.VN - App landing pages © 2017'}
+				/>
+
+				<a href="javascript:" id="return-to-top" onClick={this.onReturnTopClick}>
+					<i className="fa fa-angle-up" aria-hidden="true"></i>
+				</a>
 			</div>
 		)	
 	}
